@@ -1,0 +1,14 @@
+-if @dealerhand.count > 21 
+  The Dealer Busted. 
+-else  
+  -if @playerhand.count > @dealerhand.count
+    You Won.
+  -else
+    The Dealer Won.
+%a{ :href => "/"} Play again?    
+.hand
+  -@playerhand.cards.each do |card|
+    %img(src = "/images/Cards/#{card.image}")
+.hand    
+  -@dealerhand.cards.each do |card|
+    %img(src = "/images/Cards/#{card.image}")

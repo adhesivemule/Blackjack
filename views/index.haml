@@ -1,0 +1,25 @@
+-if @playerhand.count > 21 
+  You Busted. 
+  %a{ :href => "/"} Play again?
+-else
+  -if @playerhand.count == 21
+    You Got Blackjack!
+    %a{ :href => "/"} Play again?
+  -else
+    -if @dealerhand.count == 21
+      The Dealer Got Blackjack!
+      %a{ :href => "/"} Play again?      
+    -else  
+      %a{ :href => "/hit"} HIT
+      %a{ :href => "/stay"} STAY
+.hand
+  -@playerhand.cards.each do |card|
+    %img(src = "/images/Cards/#{card.image}")
+.hand      
+  -if @dealerhand.count == 21
+    -@dealerhand.cards.each do |card|
+      %img(src = "/images/Cards/#{card.image}")
+  -else  
+    %img(src = "/images/Cards/back-red-75-2.png ")
+    %img(src = "/images/Cards/#{@dealerhand.cards[1].image}")
+    

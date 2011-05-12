@@ -1,0 +1,40 @@
+!!!
+%html{ :xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %title Double Down
+    %link{ :rel => "stylesheet", :href => "styles.css", :type => "text/css"}
+  %body
+    #wrap
+      #header
+        #innerheader
+          #title
+            %h1 Double Down		  
+            %h2 A blackjack Game
+            
+      #content
+        #page
+          #innerpage	
+            = yield 
+        #sidebar
+          %ul
+            %li
+              %a{ :href => '/index.html' } INDEX
+            %li			
+              %a{ :href => '/examples.html' } EXAMPLES
+            %li  
+              %a{ :href => '/http://www.spyka.net/web-templates' } Web Template
+            %li  
+              %a{ :href => '/http://www.spyka.net/licesing' } Licence
+            %li  
+              %a{ :href => '/http://www.spyka.net/contact' } Contact
+      
+        .clear
+      
+      #footer
+        %p 
+          &copy; 2009. MySite.com. Design: 
+          %a{ :href => 'http://www.spyka.net'} spyka
+
+            
+        
+             
