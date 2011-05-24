@@ -13,13 +13,12 @@
       %a{ :href => "/hit"} HIT
       %a{ :href => "/stay"} STAY
 .hand
-  -@playerhand.cards.each do |card|
-    %img(src = "/images/Cards/#{card.image}")
-.hand      
   -if @dealerhand.count == 21
     -@dealerhand.cards.each do |card|
       %img(src = "/images/Cards/#{card.image}")
   -else  
     %img(src = "/images/Cards/back-red-75-2.png ")
     %img(src = "/images/Cards/#{@dealerhand.cards[1].image}")
-    
+.playerhand      
+  -@playerhand.cards.each do |card|
+    %img(src = "/images/Cards/#{card.image}")

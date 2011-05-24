@@ -14,25 +14,23 @@
       #content
         #page
           #innerpage	
-            = yield 
+            #table
+              = yield 
         #sidebar
           %ul
             %li
-              %a{ :href => '/index.html' } INDEX
-            %li			
-              %a{ :href => '/examples.html' } EXAMPLES
-            %li  
-              %a{ :href => '/http://www.spyka.net/web-templates' } Web Template
-            %li  
-              %a{ :href => '/http://www.spyka.net/licesing' } Licence
-            %li  
-              %a{ :href => '/http://www.spyka.net/contact' } Contact
+              %a{ :href => '/' } New Game
+            -if !@busted then   
+              %li			
+                %a{ :href => '/hit' } Hit
+              %li  
+                %a{ :href => '/stay' } Stay
       
         .clear
       
       #footer
         %p 
-          &copy; 2009. MySite.com. Design: 
+          &copy; 2011. Sam Conroy. Design: 
           %a{ :href => 'http://www.spyka.net'} spyka
 
             

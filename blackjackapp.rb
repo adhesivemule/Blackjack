@@ -9,7 +9,8 @@ use Rack::Session::Pool,
     :expire_after => 60 * 60
 
 configure do
-    set :redis, Redis.new
+    uri = URI.parse(ENV["REDISTOGO_URL"])
+    set :redis, Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
 end
 
 before do
@@ -30,7 +31,10 @@ end
 
 get '/hit' do
     @playerhand.hit(@deck.deal(1))
-    haml :index
+	if @playerhand.count > 21 then
+	  @busted = true
+    end
+	haml :index
 end
 
 get '/stay' do
