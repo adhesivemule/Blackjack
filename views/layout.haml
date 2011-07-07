@@ -20,7 +20,7 @@
           %ul
             %li
               %a{ :href => '/' } New Game
-            -if !@busted then   
+            -if !@gameover then   
               %li			
                 %a{ :href => '/hit' } Hit
               %li  

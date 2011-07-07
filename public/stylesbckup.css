@@ -54,19 +54,17 @@ div#page {
 	float:left;
 	min-height:100px;
 
-    background: url('images/blackjacktable.jpg') no-repeat;
-	border-top-right-radius: 30px;	
-	-moz-border-top-right-radius: 30x;	    
-		border-bottom-right-radius: 10px;	
-	-moz-border-bottom-right-radius: 10x;
+    background: url('images/blackjacktable.jpg') no-repeat;    
+	
 }
 div#innerpage {
 	text-align:center;
 	padding:0px;
-
 }
 #table {
-
+	background-image:url('images/page-corner.png');
+    background-position:top right;
+	background-repeat:no-repeat;
 }
 
 div#sidebar {
