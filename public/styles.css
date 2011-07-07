@@ -21,22 +21,25 @@ div#wrap {
 	min-height:100%;
 	margin:0 auto;
 	width:960px;
-	padding-top:40px;
+	margin-top:40px; 
+    box-shadow: 10px 10px 5px #1f1f1f;	
 }
 div#header {
 	background-image:url('images/header-middle.png');
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px; 	
+	border-left:6px solid #414141;
+	border-right:6px solid #414141;
 	background-repeat:repeat-x;
 	background-position:top left;
 	height:149px;
 }
 div#innerheader {
-	background-image:url('images/header-right.png');
 	background-repeat:no-repeat;
 	background-position:top right;
 	height:149px;
 }
 div#title {
-	background-image:url('images/header-left.png');
 	background-repeat:no-repeat;
 	background-position:top left;
 	height:149px;
@@ -166,6 +169,12 @@ div#footer {
 	padding:10px 0;
 	border-left:6px solid #414141;
 	border-right:6px solid #414141;
+	border-bottom:6px solid #414141;
+	border-bottom-right-radius: 10px;	
+	-moz-border-bottom-right-radius: 10x;	    
+	border-bottom-left-radius: 10px;	
+	-moz-border-bottom-left-radius: 10x;	   
+    box-shadow: 10px 10px 5px #1f1f1f;	
 	background-color:#AE0000;
 }
 div#footer p {
