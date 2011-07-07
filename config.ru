@@ -1,2 +1,2 @@
-require 'blackjackapp'
+require './blackjackapp'
 run Sinatra::Application
