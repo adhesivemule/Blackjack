@@ -9,10 +9,10 @@
 
 .messages
   -if @dealerhand.count > 21 
-    The Dealer Busted. 
+    The Dealer Busted, You Won!
   -else  
     -if @playerhand.count > @dealerhand.count
-      You Won.
+      You Won!
     -else
       The Dealer Won.
   %a{ :href => "/"} Play again?    

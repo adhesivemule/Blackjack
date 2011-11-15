@@ -1,4 +1,6 @@
 class Card
+    # Give the program arrays called "Numbers" and "Suits" to tell it what suits and numbers will 
+    # appear for cards.
     Numbers = %w[2 3 4 5 6 7 8 9 10 j q k a]
 	Suits = %w[spades hearts diamonds clubs]
 	 
@@ -18,7 +20,8 @@ end
 
 class Deck
     attr_accessor :cards
-	def initialize()
+    def initialize()
+		@id = settings.id
 		@deck = "user:#{@id}:deck"
 	end
 	
@@ -42,10 +45,10 @@ end
 class Hand
 	attr_accessor :cards
 	def initialize(player)
+		@id = settings.id
         @hand = "user:#{@id}:player:#{player}:hand"
-	   	self.cards = cards
-	end
-	
+		self.cards = cards	
+	end	
 	def cards
         cards = []
         raw_cards = settings.redis.lrange @hand, 0, -1
@@ -67,6 +70,4 @@ class Hand
 	    end
 	end
 end
-
-
 

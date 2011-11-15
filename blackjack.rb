@@ -1,6 +1,7 @@
 require './Cards.rb'
 
 class BlackjackCard < Card
+   # Making an array to tell the program what values we are using.
    Values = [2,3,4,5,6,7,8,9,10,10,10,10,11]
 
    attr_accessor :value
@@ -26,7 +27,7 @@ class BlackjackHand < Hand
 	def count
 	    count = 0 
 		temp_hand = self.cards.sort_by {|card| card.value}
-		temp_hand.each do |card|
+        temp_hand.each do |card|
 		    if card.value == 11 and count + card.value > 21 then
 			    count = count + 1
 			else			
