@@ -33,14 +33,14 @@ get '/' do
     @deck.shuffle!
     @playerhand.hit(@deck.deal(2))
     @dealerhand.hit(@deck.deal(2))
-	if @playerhand.count == 21 then
-	  @blackjack = true
-	  @gameover = true
-	end
+    if @playerhand.count == 21 then
+      @blackjack = true
+      @gameover = true
+    end
     if @dealerhand.count == 21 then
-	  @dealer_blackjack = true
-	  @gameover = true
-	end
+      @dealer_blackjack = true
+      @gameover = true
+    end
     haml :index
 end
 
@@ -66,10 +66,10 @@ end
 # if they get 21 from the card gameover = true
 get '/hit' do
     @playerhand.hit(@deck.deal(1))
-	if @playerhand.count > 21 then
-	  @gameover = true
+    if @playerhand.count > 21 then
+      @gameover = true
     end
-	haml :index
+    haml :index
 end
 
 #T his tells the game when someone types /stay or hits the button and hits of the dealers hand untill 

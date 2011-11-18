@@ -20,29 +20,29 @@ class BlackjackHand < Hand
         raw_cards = settings.redis.lrange @hand, 0, -1
         raw_cards.each do |card|
             cards.push(BlackjackCard.new(card.to_i))        
-	    end
+        end
         return cards
     end
     
-	def count
-	    count = 0 
-		temp_hand = self.cards.sort_by {|card| card.value}
+    def count
+        count = 0 
+        temp_hand = self.cards.sort_by {|card| card.value}
         temp_hand.each do |card|
-		    if card.value == 11 and count + card.value > 21 then
-			    count = count + 1
-			else			
-			    count = count + card.value
-		    end	    
-		end
-	    return count   
-	end
-	def length
-	    cards.to_a.length
-	end	
-	def show_hand(number_cards=cards.length)
-	    number_cards.times do |i|
-		    puts cards[i].name
-		end
-		puts count	
-	end
-end	
+            if card.value == 11 and count + card.value > 21 then
+                count = count + 1
+            else            
+                count = count + card.value
+            end        
+        end
+        return count   
+    end
+    def length
+        cards.to_a.length
+    end    
+    def show_hand(number_cards=cards.length)
+        number_cards.times do |i|
+            puts cards[i].name
+        end
+        puts count    
+    end
+end    

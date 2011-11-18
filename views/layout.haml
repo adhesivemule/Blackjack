@@ -11,12 +11,12 @@
       #header
         #innerheader
           #title
-            %h1 Double Down		  
+            %h1 Double Down          
             %h2 A blackjack Game
             
       #content
         #page
-          #innerpage	
+          #innerpage    
             #table
               #New_Game
                 %ul.gamemenu
@@ -25,16 +25,16 @@
               #Hit_Stay
                 %ul.gamemenu
                   -if !@gameover then   
-                  %li			
+                  %li            
                     %a{ :href => '/hit' } Hit
                   %li  
-                    %a{ :href => '/stay' } Stay	
+                    %a{ :href => '/stay' } Stay    
               = yield
-            		  
+                      
 
           #chips
             %img{:src => "/images/blackjack_white_chip.png", :width => "70", :height => "70"}
-            %img{:src => "/images/blackjack_red_chip.png",   :width => "70", :height => "70"}			
+            %img{:src => "/images/blackjack_red_chip.png",   :width => "70", :height => "70"}            
             %img{:src => "/images/blackjack_green_chip.png", :width => "70", :height => "70"}
             %img{:src => "/images/blackjack_black_chip.png", :width => "70", :height => "70"}
       
