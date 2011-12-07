@@ -1,25 +1,44 @@
-
-#chip_pile  
-.hand
-  -if @dealerhand.count == 21
-    -@dealerhand.cards.each do |card|
+#table
+  #New_Game
+    %ul.gamemenu
+      %li
+        %a{ :href => '/' } New Game
+  #Hit_Stay
+    %ul.gamemenu
+      -if !@gameover then   
+        %li            
+          %a{ :href => '/hit' } Hit
+        %li  
+          %a{ :href => '/stay' } Stay    
+                      
+  .hand
+    -if @dealerhand.count == 21
+      -@dealerhand.cards.each do |card|
+        %img(src = "/images/Cards/#{card.image}")
+    -else  
+      %img(src = "/images/Cards/back-red-75-2.png ")
+      %img(src = "/images/Cards/#{@dealerhand.cards[1].image}")
+  .playerhand      
+    -@playerhand.cards.each do |card|
       %img(src = "/images/Cards/#{card.image}")
-  -else  
-    %img(src = "/images/Cards/back-red-75-2.png ")
-    %img(src = "/images/Cards/#{@dealerhand.cards[1].image}")
-.playerhand      
-  -@playerhand.cards.each do |card|
-    %img(src = "/images/Cards/#{card.image}")
 
-.messages
-  -if @playerhand.count > 21 
-    You Busted. 
-    %a{ :href => "/"} Play again?
-  -else
-    -if @blackjack
-      You Got Blackjack!
+  .messages
+    -if @playerhand.count > 21 
+      You Busted. 
       %a{ :href => "/"} Play again?
     -else
-      -if @dealer_blackjack
-        The Dealer Got Blackjack!
-        %a{ :href => "/"} Play again?    
+      -if @blackjack
+        You Got Blackjack!
+        %a{ :href => "/"} Play again?
+      -else
+        -if @dealer_blackjack
+          The Dealer Got Blackjack!
+          %a{ :href => "/"} Play again?    
+                      
+                      
+    #chips
+      %img{:src => "/images/blackjack_white_chip.png", :width => "70", :height => "70"}
+      %img{:src => "/images/blackjack_red_chip.png",   :width => "70", :height => "70"}            
+      %img{:src => "/images/blackjack_green_chip.png", :width => "70", :height => "70"}
+      %img{:src => "/images/blackjack_black_chip.png", :width => "70", :height => "70"}
+    #chip_pile  

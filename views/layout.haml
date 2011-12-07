@@ -2,10 +2,10 @@
 %html{ :xmlns => "http://www.w3.org/1999/xhtml"}
   %head
     %title Double Down
-    %link{ :rel => "stylesheet", :href => "styles.css", :type => "text/css"}
+    %link{ :rel => "stylesheet", :href => "/styles.css", :type => "text/css"}
     %script{ :type =>"text/javascript", :src => "http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"}  
     %script{ :type =>"text/javascript", :src => "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"}  
-    %script{ :type =>"text/javascript", :src => "script.js"}   
+    %script{ :type =>"text/javascript", :src => "/script.js"}   
   %body
     #wrap
       #header
@@ -17,33 +17,13 @@
       #content
         #page
           #innerpage    
-            #table
-              #New_Game
-                %ul.gamemenu
-                  %li
-                    %a{ :href => '/' } New Game
-              #Hit_Stay
-                %ul.gamemenu
-                  -if !@gameover then   
-                  %li            
-                    %a{ :href => '/hit' } Hit
-                  %li  
-                    %a{ :href => '/stay' } Stay    
-              = yield
-                      
-
-          #chips
-            %img{:src => "/images/blackjack_white_chip.png", :width => "70", :height => "70"}
-            %img{:src => "/images/blackjack_red_chip.png",   :width => "70", :height => "70"}            
-            %img{:src => "/images/blackjack_green_chip.png", :width => "70", :height => "70"}
-            %img{:src => "/images/blackjack_black_chip.png", :width => "70", :height => "70"}
-      
+            =yield
       
         .clear
       
       #footer
         %p 
-          &copy; 2011. Adhesivemule Games
+          &copy; 2011 Adhesivemule Games
           
 
             

@@ -7,6 +7,9 @@ class Bankroll
                  "Red" => 5,
                  "Green" => 25,
                  "Black" => 100]
+    TABLE100 = Hash["White" =>  10,
+                    "Red" =>  8,
+                    "Green" => 2]                    
     
     # I think this stores the money and chips into redis under "settings.id". Also it 
     # lets me input an amount of money players start with.
@@ -18,25 +21,27 @@ class Bankroll
       @money = @redis.get @redis_money
       @money = @money.to_i
     end
+    
     def chips(color)
       chips = @redis.hget @redis_chips, color
       return chips.to_i
     end  
       
-    
    # Finds the color and the amount of chips then tells it the exchange rate in dollars.
    def exchange(amount, color)
-        dollars = CHIPS[color]*amount
+        dollars = CHIPS[color]*amount.to_i
         return dollars
     end    
 
     def buy_chips(amount_chips, color_chips)
+        amount_chips = amount_chips.to_i
         dollars = exchange(amount_chips, color_chips)
         if CHIPS.has_key?(color_chips) then
+        puts "That color chip exists"
           if amount_chips >= 0 and dollars <= @money then
-              remaining_money = @money - dollars
-              @redis.hset @redis_money, remaining_money
-              @redis.hset @redis_chips, color_chips, self.chips(color_chips) + amount_chips.to_i    
+          puts "The amount of chips is greater then 0"
+              @redis.incrby @redis_money, -dollars
+              @redis.hincrby @redis_chips, color_chips, amount_chips  
           end    
         end
     end
@@ -55,19 +60,35 @@ class Bankroll
       end
     end
     
-    def bet_chips(amount_chips, color_chips)
-        if self.chips(color_chips) >= amount_chips and amount_chips >= 0 then
-          #Checking to see if we have enough chips.
-          @redis.set @redis_chips, self.chips(color_chips) - amount_chips
-        end  
-    end
-    def buy_in(amount_money)
+    def bankroll(amount_money) 
       @redis.incrby @redis_money, amount_money
     end
+    def buy_in(table_value)
+      if table_value <= @money then
+        self.bankroll(-table_value)
+        if table_value == 100 then
+          tablehash = TABLE100
+        elsif table_value == 500 then
+          tablehash = TABLE500        
+        end  
+        if tablehash then
+          tablehash.each do |color, amount|
+            @redis.hincrby @redis_chips, color, amount 
+          end
+        end            
+    end    
+        
+      
+      
+      
     def bet(amount_chips, color_chips)
-     @redis.hincrby @chips, color, -1
-     @redis.hincr bet, color
-    end 
+      amount_chips = amount_chips.to_i
+      if self.chips(color_chips) >= amount_chips and amount_chips >= 0 then
+        @redis.hincrby @redis_chips, color_chips, -amount_chips
+        @redis.hincrby @bet, color_chips, amount_chips
+      end  
+    end
+    
     def getBet()
       return @redis.hgetall @bet
     end  

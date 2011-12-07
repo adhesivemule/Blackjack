@@ -29,10 +29,15 @@ before do
 end
 
 # Shuffles the decks deals the hands then makes sure nobody got blackjack, if they do gameover = true.    
-get '/' do
+get '/main_menu' do
+    haml :main_menu
+end    
+
+get '/table/:buy_in' do |buy_in|
     @deck.shuffle!
     @playerhand.hit(@deck.deal(2))
     @dealerhand.hit(@deck.deal(2))
+    @bankroll.buy_in(buy_in)
     if @playerhand.count == 21 then
       @blackjack = true
       @gameover = true
@@ -52,6 +57,7 @@ end
 
 get '/buy_chips/:amount_chips/:color_chips' do |amount_chips, color_chips|
     @bankroll.buy_chips(amount_chips, color_chips)
+    puts "You bought #{@bankroll.chips(color_chips)} #{color_chips}"
 end    
 
 get '/bet/:color_chips/:amount_chips' do |color_chips, amount_chips|
@@ -81,3 +87,4 @@ get '/stay' do
   @gameover = true
   haml :stay
 end
+
