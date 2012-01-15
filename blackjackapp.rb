@@ -26,12 +26,10 @@ before do
     @playerhand = BlackjackHand.new(@player)
     @dealerhand = BlackjackHand.new(@dealer)
     @bankroll = Bankroll.new
+    @bankroll.bankroll(1000)
 end
 
 # Shuffles the decks deals the hands then makes sure nobody got blackjack, if they do gameover = true.    
-get '/main_menu' do
-    haml :main_menu
-end    
 
 get '/table/:buy_in' do |buy_in|
     @deck.shuffle!
@@ -68,6 +66,10 @@ get '/sell_chips/:color_chips/:amount_chips' do |color_chips, amount_chips|
     @bankroll.sell_chips(amount_chips, color_chips)
 end    
 
+get '/main_menu' do
+  haml :main_menu
+end
+  
 # This tells the game when someone types /hit or hits the hit button to deal 1 card from the deck, 
 # if they get 21 from the card gameover = true
 get '/hit' do

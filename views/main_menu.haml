@@ -1,1 +1,16 @@
-#menu= "Hello"
+#left_column
+  %ul{:class => "sf-menu sf-vertical"}
+    %li
+      %a{:href => "/table/100"} 100$ Buy In
+    %li
+      %a{:href => "/table/500"} 500$ Buy In    
+  
+#right_column
+  Right Menu Here 
+
+  
+
+:javascript
+   $(document).ready(function() { 
+   $('ul.sf-menu').superfish(); 
+   });

@@ -9,9 +9,7 @@ body {
 	font-family:Georgia, "Times New Roman", Times, serif;
 	font-size:1.0em;
 	background-color:#333333;
-	position:absolute;
-	top: 10px;
-	left:50px;
+	margin:0 auto;
 	padding:0;
 	height:100%;
 }
@@ -22,39 +20,23 @@ body {
 div#wrap {
 	min-height:100%;
 	margin:0 auto;
-	margin-top:40px; 
-    /*box-shadow: 10px 10px 5px #1f1f1f;*/	
+	width:80%;
+	padding-top:40px;
 }
 div#header {
-
-    border-top:6px solid #414141;
-	border-top-right-radius:10px;
-	border-top-left-radius:60px;
-	border-left:6px solid #414141;
-	border-right:6px solid #414141;
+	background-image:url('images/header-middle.png');
 	background-repeat:repeat-x;
 	background-position:top left;
 	height:149px;
-	box-shadow: 10px 10px 5px #1f1f1f;*/
 }
 div#innerheader {
-	border-top-left-radius:55px;
-    background: rgb(169,3,41); 
-    /* Old browsers */
-    background: -moz-linear-gradient(-45deg, rgba(169,3,41,1) 0%, rgba(143,2,34,1) 44%, rgba(109,0,25,1) 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(169,3,41,1)), color-stop(44%,rgba(143,2,34,1)), color-stop(100%,rgba(109,0,25,1))); 
-    /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(-45deg, rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(-45deg, rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%); 
-    /* Opera 11.10+ */
-    background: -ms-linear-gradient(-45deg, rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%); 
-    /* IE10+ */
-    background: linear-gradient(-45deg, rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%); 
-    /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6d0019', endColorstr='#AE0000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+	background-image:url('images/header-right.png');
+	background-repeat:no-repeat;
+	background-position:top right;
 	height:149px;
 }
 div#title {
+	background-image:url('images/header-left.png');
 	background-repeat:no-repeat;
 	background-position:top left;
 	height:149px;
@@ -65,62 +47,42 @@ div#content {
 	border-left:6px solid #414141;
 	border-right:6px solid #414141;
 	background-color:#AE0000;
-	box-shadow: 10px 10px 5px #1f1f1f;
 }
 div#page {
 	background-color:#ffffff;
-	width:1000px;
+	width:70%;
 	float:left;
-    height;
-	border-top-right-radius: 15px;	
-	-moz-border-top-right-radius: 30x;
-	border-top-left-radius: 20px;
-	-moz-border-top-left-radius: 30x;
-	border-bottom-left-radius: 5px;	
-	-moz-border-bottom-right-radius: 10x;  
-	border-bottom-right-radius: 15px;	
-	-moz-border-bottom-right-radius: 10x;
-
+	min-height:100px;
+	background-image:url('images/page-corner.png');
+	background-position:top right;
+	background-repeat:no-repeat;
 }
-div#innerpage {
-	text-align:center;
-	padding:0px;
-}
-#table {
-    background: url('images/blackjacktable12.png') no-repeat;
-    background-size:100%;
-    height:580px;
+div.innerpage {
+	padding:10px;
+	background-image:url('images/page-corner-bottom.png');
+	background-repeat:no-repeat;
+	background-position:bottom right;
 }
 
 div#sidebar {
-	width:200px;
+	width:27%;
 	float:left;
 	margin-top:50px;
 }
 
+
+
 /*
 	nav
 */
-#New_Game{
-   position:absolute;
-   top: 710px;
-   left: 750px;
-}   
-#Hit_Stay{
-    position:absolute;
-    top:710px;
-    left:850px;
-}  
-ul.gamemenu{
-	list-style:none; 
-	border:0px solid #000;
+div#sidebar ul {
+	list-style:none;
+	margin:0;
 	padding:0;
-    z-index:1000000;
 }
-ul.gamemenu li{
-  float: left;
+div#sidebar ul li {
 }
-ul.gamemenu li a {
+div#sidebar ul li a {
 	background-color:#910000;
 	color:#ffffff;
 	border-bottom:2px solid #7D0000;
@@ -131,7 +93,7 @@ ul.gamemenu li a {
 	text-decoration:none;
 	font-size:0.9em;
 }
-ul.gamemenu li a:hover {
+div#sidebar ul li a:hover {
 	background-color:#880000;
 }
 
@@ -199,8 +161,6 @@ div#footer {
 	padding:10px 0;
 	border-left:6px solid #414141;
 	border-right:6px solid #414141;
-	border-bottom:6px solid #414141;	   
-    box-shadow:10px 10px 5px #1f1f1f;	
 	background-color:#AE0000;
 }
 div#footer p {
@@ -267,7 +227,7 @@ div.sidebar ul {
 	list-style:none;
 	padding:0;
 	border-top:4px solid #dddddd;
-	margin:0 0 20px 0; 
+	margin:0 0 20px 0
 }
 ul {
 	margin:0 0 20px 20px;
@@ -303,41 +263,3 @@ code {
 *:focus {
 	outline:none;
 }
-.hand {
-    margin:0 auto;
-    padding:20px;
-}
-.playerhand {
-    margin: 0 auto;
-    margin-top:100px;
-}
-.messages {
-    border:0px groove #CC0000;
-	color: white;
-	font-size: 30px;
-
-}
-#chip_pile {
-  border:1px solid #000;
-  width: 758px;
-  height: 95px;
-  position:absolute;
-  top:350px;
-  left:130px;
-
-}
-#chips {
-  position:absolute;
-  top:695px;
-  left:45px;
-}
-#left_column{
-  width: 20%;
-  float: left;
-  border: 1px solid red;
-}
-#right_column{
-  width: 30%;
-  float: right;
-  border: 1px solid red;
-}    

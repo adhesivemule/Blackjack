@@ -43,6 +43,6 @@ class BlackjackHand < Hand
         number_cards.times do |i|
             puts cards[i].name
         end
-        puts count    
+        puts count
     end
 end    

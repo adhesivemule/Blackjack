@@ -9,7 +9,15 @@ class Bankroll
                  "Black" => 100]
     TABLE100 = Hash["White" =>  10,
                     "Red" =>  8,
-                    "Green" => 2]                    
+                    "Green" => 2]  
+    Table500 = Hash["White" => 50,
+                    "Red" => 20, 
+                    "Green" => 6,
+                    "Black" => 2]
+    Table1000 = Hash["White" => 100,
+                     "Red" => 50,
+                     "Green" => 18,
+                     "Black" => 2]                       
     
     # I think this stores the money and chips into redis under "settings.id". Also it 
     # lets me input an amount of money players start with.
@@ -64,18 +72,22 @@ class Bankroll
       @redis.incrby @redis_money, amount_money
     end
     def buy_in(table_value)
+      table_value = table_value.to_i
       if table_value <= @money then
         self.bankroll(-table_value)
         if table_value == 100 then
           tablehash = TABLE100
         elsif table_value == 500 then
-          tablehash = TABLE500        
+          tablehash = TABLE500
+        elsif table_value == 500 then
+          tablehash = TABLE1000
         end  
         if tablehash then
           tablehash.each do |color, amount|
             @redis.hincrby @redis_chips, color, amount 
           end
-        end            
+        end
+      end        
     end    
         
       
@@ -94,4 +106,3 @@ class Bankroll
     end  
 end    
 
-          
