@@ -10,11 +10,11 @@ class Bankroll
     TABLE100 = Hash["White" =>  10,
                     "Red" =>  8,
                     "Green" => 2]  
-    Table500 = Hash["White" => 50,
+    TABLE500 = Hash["White" => 50,
                     "Red" => 20, 
                     "Green" => 6,
                     "Black" => 2]
-    Table1000 = Hash["White" => 100,
+    TABLE1000 = Hash["White" => 100,
                      "Red" => 50,
                      "Green" => 18,
                      "Black" => 2]                       

@@ -25,22 +25,25 @@
   .messages
     -if @playerhand.count > 21 
       You Busted. 
-      %a{ :href => "/"} Play again?
+      %a{ :href => "/table/#{@buy_in}"} Play again?
     -else
       -if @blackjack
         You Got Blackjack!
-        %a{ :href => "/"} Play again?
+        %a{ :href => "/table/#{@buy_in}"} Play again?
       -else
         -if @dealer_blackjack
           The Dealer Got Blackjack!
-          %a{ :href => "/"} Play again?    
+          %a{ :href => "/table/#{@buy_in}"} Play again?    
                       
                       
     #chips
       - if @bankroll.chips("White") > 0
         #white_chips
-          %img{:src => "/images/blackjack_white_chip.png", :width => "70", :height => "70"}
-          =@bankroll.chips("White")
+          %img{:src => "/images/blackjack_white_chip.png", :width => "70", :height => "70", :data => {:max => @bankroll.chips("White"), :qty => "0"}}
+          .num_chips
+            =@bankroll.chips("White")
+          .slider
+          .slider-result 0
           %input{ :type=> "range", :name=>"amount_chips", :min=>"0", :max=> @bankroll.chips("White"), :value=>"0"}  
       - if @bankroll.chips("Red") > 0
         %img{:src => "/images/blackjack_red_chip.png",   :width => "70", :height => "70"}            

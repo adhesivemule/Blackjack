@@ -32,6 +32,7 @@ end
 # Shuffles the decks deals the hands then makes sure nobody got blackjack, if they do gameover = true.    
 
 get '/table/:buy_in' do |buy_in|
+    @buy_in = buy_in
     @deck.shuffle!
     @playerhand.hit(@deck.deal(2))
     @dealerhand.hit(@deck.deal(2))
