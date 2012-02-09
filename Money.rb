@@ -23,7 +23,7 @@ class Bankroll
     # lets me input an amount of money players start with.
     def initialize()
       @bet = "user:#{settings.id}:bet"
-      @redis = Redis.new
+      @redis = settings.redis
       @redis_money = "user:#{settings.id}:money"
       @redis_chips = "user:#{settings.id}:chips"
       @money = @redis.get @redis_money
