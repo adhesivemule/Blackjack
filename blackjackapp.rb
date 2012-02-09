@@ -67,7 +67,7 @@ get '/sell_chips/:color_chips/:amount_chips' do |color_chips, amount_chips|
     @bankroll.sell_chips(amount_chips, color_chips)
 end    
 
-get '/main_menu' do
+get '/' do
   haml :main_menu
 end
   
