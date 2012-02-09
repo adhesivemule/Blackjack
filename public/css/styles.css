@@ -87,7 +87,7 @@ div#innerpage {
 	padding:0px;
 }
 #table {
-    background: url('images/blackjacktable12.png') no-repeat;
+    background: url('/images/blackjacktable12.png') no-repeat;
     background-size:100%;
     height:580px;
 }
