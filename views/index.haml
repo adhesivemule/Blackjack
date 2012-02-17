@@ -43,8 +43,7 @@
           .num_chips
             =@bankroll.chips("White")
           .slider
-          .slider-result 0
-          %input{ :type=> "range", :name=>"amount_chips", :min=>"0", :max=> @bankroll.chips("White"), :value=>"0"}  
+          .slider-result 0 
       - if @bankroll.chips("Red") > 0
         %img{:src => "/images/blackjack_red_chip.png",   :width => "70", :height => "70"}            
         =@bankroll.chips("Red")

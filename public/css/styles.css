@@ -317,6 +317,9 @@ code {
 	font-size: 30px;
 
 }
+.slider {
+    width: 50%;
+}    
 #chip_pile {
   border:1px solid #000;
   width: 758px;
@@ -330,14 +333,14 @@ code {
   position:absolute;
   top:695px;
   left:45px;
+  font-size: 50%
 }
 #left_column{
   width: 20%;
   float: left;
   border: 1px solid red;
 }
-#right_column{
-  width: 30%;
-  float: right;
+#center{
+  width: 80%px;
+  float: left;
   border: 1px solid red;
-}    
