@@ -26,7 +26,6 @@ div#wrap {
     /*box-shadow: 10px 10px 5px #1f1f1f;*/	
 }
 div#header {
-
     border-top:6px solid #414141;
 	border-top-right-radius:10px;
 	border-top-left-radius:60px;
@@ -39,19 +38,17 @@ div#header {
 }
 div#innerheader {
 	border-top-left-radius:55px;
-    background: rgb(169,3,41); 
-    /* Old browsers */
-    background: -moz-linear-gradient(-45deg, rgba(169,3,41,1) 0%, rgba(143,2,34,1) 44%, rgba(109,0,25,1) 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(169,3,41,1)), color-stop(44%,rgba(143,2,34,1)), color-stop(100%,rgba(109,0,25,1))); 
-    /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(-45deg, rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(-45deg, rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%); 
-    /* Opera 11.10+ */
-    background: -ms-linear-gradient(-45deg, rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%); 
-    /* IE10+ */
-    background: linear-gradient(-45deg, rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%); 
-    /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6d0019', endColorstr='#AE0000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    background: rgb(0,0,120); /* Old browsers */
+    background: -moz-linear-gradient(-45deg,  rgba(0,0,120,1) 0%, rgba(0,0,150,1) 47%, rgba(0,0,175,1) 82%, rgba(0,0,175,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(0,0,120,1)), color-stop(47%,rgba(0,0,150,1)), color-stop(82%,rgba(0,0,175,1)), color-stop(100%,rgba(0,0,175,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(-45deg,  rgba(0,0,120,1) 0%,rgba(0,0,150,1) 47%,rgba(0,0,175,1) 82%,rgba(0,0,175,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(-45deg,  rgba(0,0,120,1) 0%,rgba(0,0,150,1) 47%,rgba(0,0,175,1) 82%,rgba(0,0,175,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(-45deg,  rgba(0,0,120,1) 0%,rgba(0,0,150,1) 47%,rgba(0,0,175,1) 82%,rgba(0,0,175,1) 100%); /* IE10+ */
+    background: linear-gradient(-45deg,  rgba(0,0,120,1) 0%,rgba(0,0,150,1) 47%,rgba(0,0,175,1) 82%,rgba(0,0,175,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000078', endColorstr='#0000af',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+
+
 	height:149px;
 }
 div#title {
@@ -111,6 +108,11 @@ div#sidebar {
     top:710px;
     left:850px;
 }  
+/*#Main_Menu{
+    position:abosolute;
+    top: 710px;
+    left: 100px;
+}*/
 ul.gamemenu{
 	list-style:none; 
 	border:0px solid #000;
@@ -147,7 +149,7 @@ h1 {
 	font-weight:normal;
 }
 h2 {
-	color:#4A0000;
+	color:#00E000;
 	font-weight:normal;
 	padding:0;
 	margin:-10px 0 0 0;
@@ -201,7 +203,7 @@ div#footer {
 	border-right:6px solid #414141;
 	border-bottom:6px solid #414141;	   
     box-shadow:10px 10px 5px #1f1f1f;	
-	background-color:#AE0000;
+	background-color:#000078;
 }
 div#footer p {
 	text-align:center;
