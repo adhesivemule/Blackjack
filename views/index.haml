@@ -18,6 +18,7 @@
     -else  
       %img(src = "/images/Cards/back-red-75-2.png ")
       %img(src = "/images/Cards/#{@dealerhand.cards[1].image}")
+  #chip_pile 
   .playerhand      
     -@playerhand.cards.each do |card|
       %img(src = "/images/Cards/#{card.image}")
@@ -38,22 +39,22 @@
                       
     #chips
       - if @bankroll.chips("White") > 0
-        #white_chips
+        .chip_container
           %img{:src => "/images/blackjack_white_chip.png", :width => "70", :height => "70", :data => {:max => @bankroll.chips("White"), :qty => "0"}}
           .num_chips
             =@bankroll.chips("White")
           .slider
           .slider-result 0 
       - if @bankroll.chips("Red") > 0
-        %img{:src => "/images/blackjack_red_chip.png",   :width => "70", :height => "70"}            
-        =@bankroll.chips("Red")
-        %input{ :type=> "range", :name=>"amount_chips", :min=>"0", :max=> @bankroll.chips("Red"), :value=>"0"}
+        .chip_container
+          %img{:src => "/images/blackjack_red_chip.png",   :width => "70", :height => "70"}            
+          =@bankroll.chips("Red")
       - if @bankroll.chips("Green") > 0
-        %img{:src => "/images/blackjack_green_chip.png", :width => "70", :height => "70"}
-        =@bankroll.chips("Green")
-        %input{ :type=> "range", :name=>"amount_chips", :min=>"0", :max=> @bankroll.chips("Green"), :value=>"0"}        
+        .chip_container
+          %img{:src => "/images/blackjack_green_chip.png", :width => "70", :height => "70"}
+          =@bankroll.chips("Green")  
       - if @bankroll.chips("Black") > 0
-        %img{:src => "/images/blackjack_black_chip.png", :width => "70", :height => "70"}
-        =@bankroll.chips("Black")
-        %input{ :type=> "range", :name=>"amount_chips", :min=>"0", :max=> @bankroll.chips("Black"), :value=>"0"}
-    #chip_pile  
+        .chip_container
+          %img{:src => "/images/blackjack_black_chip.png", :width => "70", :height => "70"}
+          =@bankroll.chips("Black")
+  

@@ -1,5 +1,7 @@
 $(document).ready(function() {
-  $("#white_chips").click(function(){
+  console.log("document ready");
+  $(".chip_container").click(function(){
+  console.log("click");
     $(this).children(".slider").show();
     $(this).children(".range").show();  
   });  
