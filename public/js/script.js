@@ -10,7 +10,7 @@ $(document).ready(function() {
 	stack: '#chips',
   });
   $("#chip_pile").droppable( {
-    drop: functon(event, ui) {
+    drop: function(event, ui) {
       var chip = $(ui.draggable);
       console.log("chips" + chip.data("qty"));
     }
