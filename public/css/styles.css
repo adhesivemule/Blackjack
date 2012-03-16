@@ -19,10 +19,9 @@ body {
 	structure 
 */
 div#wrap {
-	min-height:100%;
 	margin:0 auto;
 	margin-top:40px; 
-    width:1000px;
+    width:948px;
     /*box-shadow: 10px 10px 5px #1f1f1f;*/	
 }
 div#header {
@@ -38,17 +37,7 @@ div#header {
 }
 div#innerheader {
 	border-top-left-radius:55px;
-    background: rgb(0,0,120); /* Old browsers */
-    background: -moz-linear-gradient(-45deg,  rgba(0,0,120,1) 0%, rgba(0,0,150,1) 47%, rgba(0,0,175,1) 82%, rgba(0,0,175,1) 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(0,0,120,1)), color-stop(47%,rgba(0,0,150,1)), color-stop(82%,rgba(0,0,175,1)), color-stop(100%,rgba(0,0,175,1))); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(-45deg,  rgba(0,0,120,1) 0%,rgba(0,0,150,1) 47%,rgba(0,0,175,1) 82%,rgba(0,0,175,1) 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(-45deg,  rgba(0,0,120,1) 0%,rgba(0,0,150,1) 47%,rgba(0,0,175,1) 82%,rgba(0,0,175,1) 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(-45deg,  rgba(0,0,120,1) 0%,rgba(0,0,150,1) 47%,rgba(0,0,175,1) 82%,rgba(0,0,175,1) 100%); /* IE10+ */
-    background: linear-gradient(-45deg,  rgba(0,0,120,1) 0%,rgba(0,0,150,1) 47%,rgba(0,0,175,1) 82%,rgba(0,0,175,1) 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000078', endColorstr='#0000af',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-
-
-
+    background: #2570BB;
 	height:149px;
 }
 div#title {
@@ -61,23 +50,12 @@ div#title {
 div#content {
 	border-left:6px solid #414141;
 	border-right:6px solid #414141;
-	background-color:#AE0000;
+	background-color:#2570BB;
 	box-shadow: 10px 10px 5px #1f1f1f;
 }
 div#page {
-	background-color:#ffffff;
-	width:1000px;
+	width:940px;
 	float:left;
-    height;
-	border-top-right-radius: 15px;	
-	-moz-border-top-right-radius: 30x;
-	border-top-left-radius: 20px;
-	-moz-border-top-left-radius: 30x;
-	border-bottom-left-radius: 5px;	
-	-moz-border-bottom-right-radius: 10x;  
-	border-bottom-right-radius: 15px;	
-	-moz-border-bottom-right-radius: 10x;
-
 }
 div#innerpage {
 	text-align:center;
@@ -99,14 +77,12 @@ div#sidebar {
 	nav
 */
 #New_Game{
-   position:absolute;
-   top: 710px;
-   left: 750px;
+  position:absolute;
+  top: 710px;
+  left: 750px;
 }   
 #Hit_Stay{
-    position:absolute;
-    top:710px;
-    left:850px;
+  
 }  
 /*#Main_Menu{
     position:abosolute;
@@ -320,7 +296,8 @@ code {
 
 }
 .slider {
-    width: 50%;
+    width: 150%;
+    display: none;
 }    
 #chip_pile {
   border:1px solid #000;
@@ -328,7 +305,6 @@ code {
   height: 95px;
   top:50px;
   left:130px;
-
 }
 #chips {
   border: 1px solid red;
@@ -347,3 +323,4 @@ code {
   width: 80%;
   float: left;
   border: 1px solid red;
+}

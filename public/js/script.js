@@ -2,8 +2,8 @@ $(document).ready(function() {
   console.log("document ready");
   $(".chip_container").click(function(){
   console.log("click");
+    $(".slider").hide();
     $(this).children(".slider").show();
-    $(this).children(".range").show();  
   });  
   $("#chips img").draggable({
     revert: 'invalid',
@@ -12,7 +12,10 @@ $(document).ready(function() {
   $("#chip_pile").droppable( {
     drop: function(event, ui) {
       var chip = $(ui.draggable);
-      console.log("chips" + chip.data("qty"));
+      console.log("chips" + chip.data("qty") + chip.data("color"));
+      $.ajax({
+        url: "/bet/"+ chip.data("color") + "/" + chip.data ("qty")
+      });
     }
   });
    
@@ -21,8 +24,8 @@ $(document).ready(function() {
     range: "min",
     value: 0,
     min: 0,
-    max: $(".num_chips").text(),
-    step: 1,
+    max: 10,  
+    step: 1,  
     slide: function(event, slider){
       var parent = $(event.target).parent();
       parent.find(".slider-result").html(slider.value);
@@ -32,7 +35,7 @@ $(document).ready(function() {
     change: function(event, slider){
       var img = $(event.target).parent().find("img");
       img.data("qty", slider.value);
-      console.log("image.data" + img.data("qty"));
-    }  
+      console.log("image.");
+    }      
   });
 });

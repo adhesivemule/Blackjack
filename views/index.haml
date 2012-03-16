@@ -40,21 +40,30 @@
     #chips
       - if @bankroll.chips("White") > 0
         .chip_container
-          %img{:src => "/images/blackjack_white_chip.png", :width => "70", :height => "70", :data => {:max => @bankroll.chips("White"), :qty => "0"}}
+          %img{:src => "/images/blackjack_white_chip.png", :width => "70", :height => "70", :data => {:max => @bankroll.chips("White"), :qty => "0", :color => "White"}}
           .num_chips
             =@bankroll.chips("White")
           .slider
           .slider-result 0 
       - if @bankroll.chips("Red") > 0
         .chip_container
-          %img{:src => "/images/blackjack_red_chip.png",   :width => "70", :height => "70"}            
-          =@bankroll.chips("Red")
+          %img{:src => "/images/blackjack_red_chip.png", :width => "70", :height => "70", :data => {:max => @bankroll.chips("Red"), :qty => "0", :color => "Red"}}
+          .num_chips
+            =@bankroll.chips("Red")
+          .slider
+          .slider-result 0 
       - if @bankroll.chips("Green") > 0
         .chip_container
-          %img{:src => "/images/blackjack_green_chip.png", :width => "70", :height => "70"}
-          =@bankroll.chips("Green")  
+          %img{:src => "/images/blackjack_green_chip.png", :width => "70", :height => "70", :data => {:max => @bankroll.chips("Green"), :qty => "0", :color => "Green"}}
+          .num_chips
+            =@bankroll.chips("Green")
+          .slider
+          .slider-result 0 
       - if @bankroll.chips("Black") > 0
         .chip_container
-          %img{:src => "/images/blackjack_black_chip.png", :width => "70", :height => "70"}
-          =@bankroll.chips("Black")
+          %img{:src => "/images/blackjack_black_chip.png", :width => "70", :height => "70", :data => {:max => @bankroll.chips("Black"), :qty => "0", :color => "Black"}}
+          .num_chips
+            =@bankroll.chips("Black")
+          .slider
+          .slider-result 0 
   
