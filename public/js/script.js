@@ -1,9 +1,9 @@
 $(document).ready(function() {
-  console.log("document ready");
   $(".chip_container").click(function(){
-  console.log("click");
     $(".slider").hide();
     $(this).children(".slider").show();
+    var max = $(this).find("img").data("max");
+    $(this).find(".slider").slider("option", "max", max);
   });  
   $("#chips img").draggable({
     revert: 'invalid',
@@ -24,7 +24,6 @@ $(document).ready(function() {
     range: "min",
     value: 0,
     min: 0,
-    max: 10,  
     step: 1,  
     slide: function(event, slider){
       var parent = $(event.target).parent();
@@ -35,7 +34,6 @@ $(document).ready(function() {
     change: function(event, slider){
       var img = $(event.target).parent().find("img");
       img.data("qty", slider.value);
-      console.log("image.");
     }      
   });
 });
