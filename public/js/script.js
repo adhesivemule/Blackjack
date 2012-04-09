@@ -18,7 +18,13 @@ $(document).ready(function() {
       });
     }
   });
-   
+  $("#hit_button").click(function(event){
+    event.preventDefault();
+    $.ajax("/hit").success(function(data){
+      $(".playerhand").append(data);
+    });
+  });  
+ 
   $(".slider").slider({
     animate: true,
     range: "min",

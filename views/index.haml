@@ -1,15 +1,5 @@
 #table
-  #New_Game
-    %ul.gamemenu
-      %li
-        %a{ :href => '/Table/100' } New Game
-  #Hit_Stay
-    %ul.gamemenu
-      -if !@gameover then   
-        %li            
-          %a{ :href => '/hit' } Hit
-        %li  
-          %a{ :href => '/stay' } Stay    
+
                       
   .hand
     -if @dealerhand.count == 21
@@ -18,10 +8,12 @@
     -else  
       %img(src = "/images/Cards/back-red-75-2.png ")
       %img(src = "/images/Cards/#{@dealerhand.cards[1].image}")
-  #chip_pile 
-  .playerhand      
+  #chip_pile
+  %ul.playerhand      
     -@playerhand.cards.each do |card|
-      %img(src = "/images/Cards/#{card.image}")
+      %li
+        %img(src = "/images/Cards/#{card.image}")
+      
 
   .messages
     -if @playerhand.count > 21 
@@ -34,36 +26,47 @@
       -else
         -if @dealer_blackjack
           The Dealer Got Blackjack!
-          %a{ :href => "/table/#{@buy_in}"} Play again?    
+          %a{ :href => "/"} Play again?    
                       
                       
-    #chips
-      - if @bankroll.chips("White") > 0
-        .chip_container
-          %img{:src => "/images/blackjack_white_chip.png", :width => "70", :height => "70", :data => {:max => @bankroll.chips("White"), :qty => "0", :color => "White"}}
-          .num_chips
-            =@bankroll.chips("White")
-          .slider
-          .slider-result 0 
-      - if @bankroll.chips("Red") > 0
-        .chip_container
-          %img{:src => "/images/blackjack_red_chip.png", :width => "70", :height => "70", :data => {:max => @bankroll.chips("Red"), :qty => "0", :color => "Red"}}
-          .num_chips
-            =@bankroll.chips("Red")
-          .slider
-          .slider-result 0 
-      - if @bankroll.chips("Green") > 0
-        .chip_container
-          %img{:src => "/images/blackjack_green_chip.png", :width => "70", :height => "70", :data => {:max => @bankroll.chips("Green"), :qty => "0", :color => "Green"}}
-          .num_chips
-            =@bankroll.chips("Green")
-          .slider
-          .slider-result 0 
-      - if @bankroll.chips("Black") > 0
-        .chip_container
-          %img{:src => "/images/blackjack_black_chip.png", :width => "70", :height => "70", :data => {:max => @bankroll.chips("Black"), :qty => "0", :color => "Black"}}
-          .num_chips
-            =@bankroll.chips("Black")
-          .slider
-          .slider-result 0 
-  
+  #chips 
+    - if @bankroll.chips("White") > 0
+      .chip_container
+        %img{:src => "/images/blackjack_white_chip.png", :width => "70", :height => "70", :data => {:max => @bankroll.chips("White"), :qty => "0", :color => "White"}}
+        .num_chips
+          =@bankroll.chips("White")
+        .slider
+        .slider-result 0 
+    - if @bankroll.chips("Red") > 0
+      .chip_container
+        %img{:src => "/images/blackjack_red_chip.png", :width => "70", :height => "70", :data => {:max => @bankroll.chips("Red"), :qty => "0", :color => "Red"}}
+        .num_chips
+          =@bankroll.chips("Red")
+        .slider
+        .slider-result 0 
+    - if @bankroll.chips("Green") > 0
+      .chip_container
+        %img{:src => "/images/blackjack_green_chip.png", :width => "70", :height => "70", :data => {:max => @bankroll.chips("Green"), :qty => "0", :color => "Green"}}
+        .num_chips
+          =@bankroll.chips("Green")
+        .slider
+        .slider-result 0 
+    - if @bankroll.chips("Black") > 0
+      .chip_container
+        %img{:src => "/images/blackjack_black_chip.png", :width => "70", :height => "70", :data => {:max => @bankroll.chips("Black"), :qty => "0", :color => "Black"}}
+        .num_chips
+          =@bankroll.chips("Black")
+        .slider
+        .slider-result 0 
+  #button_controls
+    #New_Game
+      %ul.gamemenu
+        %li
+          %a{ :href => '/table/100' } New Game
+    #Hit_Stay
+      %ul.gamemenu
+        -if !@gameover then   
+          %li            
+            %a{ :href => '/hit', :id => 'hit_button' } Hit     
+          %li  
+            %a{ :href => '/stay', :id => 'stay_button' } Stay      

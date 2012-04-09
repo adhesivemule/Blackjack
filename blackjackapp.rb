@@ -78,7 +78,9 @@ get '/hit' do
     if @playerhand.count > 21 then
       @gameover = true
     end
-    haml :index
+    cards = @playerhand.cards
+    card_overlap = (cards.length - 1) *-20
+    "<li> <img src='/images/Cards/#{@playerhand.cards[-1].image}' style='left:#{card_overlap}'\> <\li>"
 end
 
 #T his tells the game when someone types /stay or hits the button and hits of the dealers hand untill 

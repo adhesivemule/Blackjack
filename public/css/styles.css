@@ -76,14 +76,17 @@ div#sidebar {
 /*
 	nav
 */
+#button_controls{
+  float: right;
+  margin-top:100px;
+}
+  
 #New_Game{
-  position:absolute;
-  top: 710px;
-  left: 750px;
+  float: right;
 }   
 #Hit_Stay{
-  
-}  
+  float: right;  
+}
 /*#Main_Menu{
     position:abosolute;
     top: 710px;
@@ -288,7 +291,17 @@ code {
 .playerhand {
     margin: 0 auto;
     margin-top:100px;
+    border: 1px solid orange;
 }
+.playerhand li {
+    list-style:none;
+    float:left;
+    position:relative;
+    left:-20px;
+} 
+.playerhand li:first-child {
+  left:0;
+}   
 .messages {
     border:0px groove #CC0000;
 	color: white;
@@ -308,7 +321,7 @@ code {
 }
 #chips {
   border: 1px solid red;
-  font-size: 50%
+  font-size: 100%;
 }
 .chip_container {
   border: 1px solid black;
