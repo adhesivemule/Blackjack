@@ -78,9 +78,10 @@ get '/hit' do
     if @playerhand.count > 21 then
       @gameover = true
     end
+    # Move the card to the left so it overlaps.
     cards = @playerhand.cards
-    card_overlap = (cards.length - 1) *-20
-    "<li> <img src='/images/Cards/#{@playerhand.cards[-1].image}' style='left:#{card_overlap}'\> <\li>"
+    card_overlap = (cards.length - 1) * -20
+    "<li style='left: #{card_overlap}px;'> <img src='/images/Cards/#{@playerhand.cards[-1].image}' \> <\li>"
 end
 
 #T his tells the game when someone types /stay or hits the button and hits of the dealers hand untill 
