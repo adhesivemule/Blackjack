@@ -1,32 +1,10 @@
 #table
-
-                      
-  .hand
-    -if @dealerhand.count == 21
-      -@dealerhand.cards.each do |card|
-        %img(src = "/images/Cards/#{card.image}")
-    -else  
-      %img(src = "/images/Cards/back-red-75-2.png ")
-      %img(src = "/images/Cards/#{@dealerhand.cards[1].image}")
+  %ul#dealerhand.hand 
   #chip_pile
-  %ul.playerhand      
-    -@playerhand.cards.each do |card|
-      %li
-        %img(src = "/images/Cards/#{card.image}")
-      
+  %ul#playerhand.hand    
 
   .messages
-    -if @playerhand.count > 21 
-      You Busted. 
-      %a{ :href => "/table/#{@buy_in}"} Play again?
-    -else
-      -if @blackjack
-        You Got Blackjack!
-        %a{ :href => "/table/#{@buy_in}"} Play again?
-      -else
-        -if @dealer_blackjack
-          The Dealer Got Blackjack!
-          %a{ :href => "/"} Play again?    
+  
                       
                       
   #chips 
@@ -59,6 +37,11 @@
         .slider
         .slider-result 0 
   #button_controls
+    #Bet_Button
+      %ul.gamemenu 
+        %li
+          %a{ :href => '/bet', :id => 'bet_button'} Bet
+              
     #New_Game
       %ul.gamemenu
         %li
@@ -70,3 +53,5 @@
             %a{ :href => '/hit', :id => 'hit_button' } Hit     
           %li  
             %a{ :href => '/stay', :id => 'stay_button' } Stay      
+
+              

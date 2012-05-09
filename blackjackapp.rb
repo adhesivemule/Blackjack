@@ -3,6 +3,7 @@
 require 'sinatra'
 require 'haml'
 require 'redis'
+require 'json'
 require './Cards.rb'
 require './blackjack.rb'
 require './Money.rb'
@@ -32,19 +33,6 @@ end
 # Shuffles the decks deals the hands then makes sure nobody got blackjack, if they do gameover = true.    
 
 get '/table/:buy_in' do |buy_in|
-    @buy_in = buy_in
-    @deck.shuffle!
-    @playerhand.hit(@deck.deal(2))
-    @dealerhand.hit(@deck.deal(2))
-    @bankroll.buy_in(buy_in)
-    if @playerhand.count == 21 then
-      @blackjack = true
-      @gameover = true
-    end
-    if @dealerhand.count == 21 then
-      @dealer_blackjack = true
-      @gameover = true
-    end
     haml :index
 end
 
@@ -66,7 +54,21 @@ end
 get '/sell_chips/:color_chips/:amount_chips' do |color_chips, amount_chips|
     @bankroll.sell_chips(amount_chips, color_chips)
 end    
-
+get '/deal' do
+  content_type :json
+  @deck.shuffle!
+  @playerhand.hit(@deck.deal(2))
+  player_cards = []
+  @playerhand.cards.each do |card|
+    player_cards.push(card.image)
+  end
+  @dealerhand.hit(@deck.deal(2))
+  dealer_cards = []
+  @dealerhand.cards.each do |card|
+    dealer_cards.push(card.image)
+  end
+  {"player_hand" => player_cards, "dealer_hand" => dealer_cards}.to_json
+end
 get '/' do
   haml :main_menu
 end
@@ -84,13 +86,30 @@ get '/hit' do
     "<li style='left: #{card_overlap}px;'> <img src='/images/Cards/#{@playerhand.cards[-1].image}' \> <\li>"
 end
 
-#T his tells the game when someone types /stay or hits the button and hits of the dealers hand untill 
-# the dealer gets > 16 then stops hitting the dealer. 
-get '/stay' do
-  until @dealerhand.count > 16
-    @dealerhand.hit(@deck.deal(1))
-  end  
-  @gameover = true
-  haml :stay
+get '/hit_check' do
+  @html = ""
+  if playerhand.count >= 21 
+    @html = "You Busted"    
+  end
+  @html
 end
 
+#This tells the game when someone types /stay or hits the button and hits of the dealers hand untill 
+# the dealer gets > 16 then stops hitting the dealer. 
+get '/stay' do
+  @list_cards = ""
+  @dealerhand.cards.each do |card|
+    @list_cards +=  "<li><img src='/images/Cards/#{card.image}' \><\li>"    
+  end  
+  until @dealerhand.count > 16
+    @dealerhand.hit(@deck.deal(1))
+    card_overlap = (@dealerhand.cards.length - 1) * -20
+    @list_cards +=  "<li style='left: #{card_overlap}px;'><img src='/images/Cards/#{@dealerhand.cards[-1].image}' \><\li>"    
+  end  
+  @list_cards
+end
+
+get '/check' do
+  if @playerhand.count == @dealerhand.count
+  end
+end

@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  var bet_confirmed = false;
   $(".chip_container").click(function(){
     $(".slider").hide();
     $(this).children(".slider").show();
@@ -11,6 +12,7 @@ $(document).ready(function() {
   });
   $("#chip_pile").droppable( {
     drop: function(event, ui) {
+      bet_confirmed = true;
       var chip = $(ui.draggable);
       console.log("chips" + chip.data("qty") + chip.data("color"));
       $.ajax({
@@ -21,10 +23,38 @@ $(document).ready(function() {
   $("#hit_button").click(function(event){
     event.preventDefault();
     $.ajax("/hit").success(function(data){
-      $(".playerhand").append(data);
+      $("#playerhand").append(data);
+      $.ajax("/hit_check").success(function(data){
+        console.log("Data" + data)
+        $(".messages").html(data);
+      });
     });
-  });  
- 
+  });
+  $("#stay_button").click(function(event){
+    event.preventDefault();
+    $.ajax("/stay").success(function(data){
+      $("#dealerhand").empty();
+      $("#dealerhand").append(data);
+    });
+  });
+  $("#bet_button").click(function(event){
+    event.preventDefault(); 
+    console.log 
+    if (!bet_confirmed){console.log ("bet_not_confirmed");return false;}
+    $.getJSON("/deal", function(data) {
+      $("#Hit_Stay").show();      
+      $("#Bet_Button").hide();
+      
+      $.each(data["player_hand"], function(key, value){
+        console.log("Value"+value);
+        $("#playerhand").append("<li><img src='/images/Cards/"+value+"'/></li>");
+      });
+      $.each(data["dealer_hand"], function(key, value){
+        console.log("Value"+value);
+        $("#dealerhand").append("<li><img src='/images/Cards/"+value+"'/></li>");
+      });
+    });
+  });    
   $(".slider").slider({
     animate: true,
     range: "min",
